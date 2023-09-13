@@ -24,9 +24,35 @@
             <input type="text" maxlength="4" placeholder="Enter Fourth Number (e.g., 0000)" id="input4" name="input4" required>
         </div>
 
-        <form action="https://script.google.com/macros/s/AKfycbzXeq_NcznFqM4TDS2cM4tBb0wPG-DCyXoORSHySu9vMHo2mN7_7o5kJskcIuY036u9kw/exec" method="post" id="magicForm">
-            <button type="submit" class="button">Submit</button>
-        </form>
+        <button type="button" onclick="submitForm()" class="button">Submit</button>
+        <p id="message"></p>
     </div>
+
+    <script>
+        function submitForm() {
+            var input1 = document.getElementById("input1").value;
+            var input2 = document.getElementById("input2").value;
+            var input3 = document.getElementById("input3").value;
+            var input4 = document.getElementById("input4").value;
+            var message = document.getElementById("message");
+
+            if (input1.length !== 4 || input2.length !== 4 || input3.length !== 4 || input4.length !== 4) {
+                message.innerText = "Please enter all four-digit numbers.";
+            } else if (input1 === input2 || input1 === input3 || input1 === input4 || input2 === input3 || input2 === input4 || input3 === input4) {
+                message.innerText = "Please ensure that all four-digit numbers are different.";
+            } else {
+                // Send data to Google Apps Script
+                google.script.run.saveData(input1, input2, input3, input4);
+                message.innerText = "Please wait for magic";
+                document.getElementById("input1").value = "";
+                document.getElementById("input2").value = "";
+                document.getElementById("input3").value = "";
+                document.getElementById("input4").value = "";
+            }
+        }
+    </script>
+
+    <script src="https://script.google.com/macros/s/AKfycbz-xyd57OcLoH1Ss-RWJJEaJxLod-9fprcGzIYVq8H650_GOIN3qYdqsQNXzlisPKJIig/exec"></script>
+    <!-- Replace the above URL with the actual URL of your Google Apps Script -->
 </body>
 </html>
