@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading...</title>
+    <style>
+        body {
+            background-color: #000;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .buffer-effect {
+            color: white;
+            font-size: 36px;
+            animation: buffer 4s infinite;
+        }
+
+        @keyframes buffer {
+            0% {
+                content: "Buffering";
+            }
+            33% {
+                content: "Buffering.";
+            }
+            66% {
+                content: "Buffering..";
+            }
+            100% {
+                content: "Buffering...";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="buffer-effect">Wait for It....</div>
+    <script>
+        setTimeout(function () {
+            window.location.href = "jumpscare.html";
+        }, 7000); // Wait for 7 seconds (7000 milliseconds)
+    </script>
+</body>
+</html>

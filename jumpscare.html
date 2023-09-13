@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jumpscare!</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        #jumpscareContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            z-index: 9999;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #buttonContainer {
+            text-align: center;
+        }
+        
+        #clickToPlay {
+            cursor: pointer;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            padding: 20px 40px;
+            font-size: 24px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="buttonContainer">
+        <button id="clickToPlay">Click to see magic</button>
+    </div>
+    <div id="jumpscareContainer">
+        <img src="jumpscare.gif" alt="Jumpscare GIF">
+    </div>
+    <audio id="horrorAudio">
+        <source src="horror.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        const clickToPlay = document.getElementById('clickToPlay');
+        const jumpscareContainer = document.getElementById('jumpscareContainer');
+        const audio = document.getElementById('horrorAudio');
+        
+        clickToPlay.addEventListener('click', () => {
+            jumpscareContainer.style.display = 'block'; // Display the jumpscare container
+            audio.play(); // Play the audio
+            clickToPlay.style.display = 'none'; // Hide the button
+        });
+    </script>
+</body>
+</html>

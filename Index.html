@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Four Digit Input</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Enter four different four-digit numbers to see a magic</h2>
+
+        <div class="input-container">
+            <input type="text" maxlength="4" placeholder="Enter First Number (e.g., 0000)" id="input1" name="input1" required>
+        </div>
+
+        <div class="input-container">
+            <input type="text" maxlength="4" placeholder="Enter Second Number (e.g., 0000)" id="input2" name="input2" required>
+        </div>
+
+        <div class="input-container">
+            <input type="text" maxlength="4" placeholder="Enter Third Number (e.g., 0000)" id="input3" name="input3" required>
+        </div>
+
+        <div class="input-container">
+            <input type="text" maxlength="4" placeholder="Enter Fourth Number (e.g., 0000)" id="input4" name="input4" required>
+        </div>
+
+        <form action="https://script.google.com/macros/s/AKfycbzC8wdYH3ZzER_sbOQS5qT5DFjjURaTcX3WJMzq1W-06IQ1MoCUwQuQK0Lbn2yZBXdY/exec" method="post" id="magicForm">
+            <button type="submit" class="button">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
