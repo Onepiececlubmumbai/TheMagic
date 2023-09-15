@@ -10,7 +10,12 @@
 
         <h2>Enter four different four-digit numbers to see a magic</h2>
 
-        <div class="input-container">
+	<div class="message-container">
+	    <p id="message">Use numbers you'll never forget!</p>
+	</div>
+
+        
+	<div class="input-container">
             <input type="text" maxlength="4" placeholder="Enter First Number (e.g., 0000)" id="input1" name="input1" required>
         </div>
 
@@ -28,7 +33,32 @@
 
         <div class="button-container"> <input type="submit" value="Submit" class="button">
         </div>
+
         </form>
-    </div>
+
+	</div>
+	
+	<script>
+  	  const inputs = document.querySelectorAll('input[type="text"]');
+   	 const message = document.getElementById('message');
+
+	    // Add an event listener to the form to check for duplicates and basic numbers
+	    document.getElementById('magicForm').addEventListener('submit', function (e) {
+    	    const values = Array.from(inputs).map(input => input.value);
+        
+        if (new Set(values).size !== values.length) {
+            alert('Please enter different numbers in each box.');
+            e.preventDefault(); // Prevent form submission
+        } else if (values.some(value => value === '1234' || value === '0000')) {
+            alert('Please choose numbers other than "1234" or "0000".');
+            e.preventDefault(); // Prevent form submission
+        } else {
+            message.innerText = "Great! Now, get ready for the magic!";
+        }
+ 	});
+	</script>
+
+	
+
 </body>
 </html>
